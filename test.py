@@ -18,7 +18,12 @@
 from ddar import DDAR
 from parse import AGProblem
 
-problems = {
+
+problems_without_aux = {
+    # TODO(miroslavo): Add here.
+}
+
+problems_with_aux = {
     "2001_p5a": (
         "a@0.3298517509465857_1.4439692260026906 = ;"
         " b@0.7379367796811421_0.6243724929135032 = ;"
@@ -215,19 +220,6 @@ problems = {
         " b0 ia ic, cyclic a b c b0, coll c0 ia ib, cyclic a b c c0 ? perp a"
         " b a c"
     ),
-    "2018_p6": (
-        "a@-2.0_0.0 = ; b@2.0_0.0 = ; c@2.3945045402761105_2.6189574965241214 ="
-        " ; d@-0.030610480032710607_3.2178076063556524 = ;"
-        " x@0.43309927395461756_1.8009802899575698 = ;"
-        " y@1.0225374627349972_-0.0 = ; o@5.825122433396758_4.66347522691964 ="
-        " ; d'@-0.030610480032710607_3.2178076063556524 = ;"
-        " e@13.000285616542053_0.0 = ; f@3.3059045697865717_8.66937693643258 ="
-        " ; e'@9.389588495774394_2.346761480514342 = eqratio a b b c d a c d,"
-        " eqangle a x a b c x c d, eqangle b x b c d x d a, coll y d x, coll y"
-        " a b, coll o a c, eqangle b o b c a b a c, coll d' c d, cong o d' o b,"
-        " coll e a b, coll e c d, coll f a d, coll f b c, cyclic a c e e', coll"
-        " e' o e ? eqangle x c x y x b x a"
-    ),
     "2019_p2": (
         "a@0.0_0.0 = ; b@1.0_0.0 = ; c@-0.7858234607409786_1.453721281271722 ="
         " ; a1@-0.294791634188577_1.0540046061728465 = ;"
@@ -274,52 +266,21 @@ problems = {
         " y', cyclic f b c e', coll p a c, coll p d k, coll m' p b, cyclic b d"
         " k m' ? coll o1 o2 y"
     ),
-    "2023_p6": (
-        "a@-0.01857504019759393_3.427142680694635 = ; b@-2.0_0.0 = ;"
-        " c@1.9587051037766576_-0.0023930105341263275 = ;"
-        " a1@-0.02048184461583443_0.27275774391953966 = ;"
-        " b1@0.4087863127764966_1.3887726433380396 = ;"
-        " m@-1.009287520098797_1.7135713403473174 = ;"
-        " s@-1.6542437702271342_0.16841041184405647 = ;"
-        " c1@-0.8895936890362837_1.6443695689306788 = ;"
-        " a2@-0.5070773151785775_2.210827340810071 = ;"
-        " b2@-1.4618288919025735_0.47313685808691086 = ;"
-        " c2@0.6241456563344259_0.36158094685377146 = ;"
-        " x@-0.42334895316617693_1.0938798351421903 = ;"
-        " a3@1.6701765349404922_-0.7924010038732885 = ;"
-        " b3@2.4878716374479795_1.511224053883809 = ;"
-        " p@-0.22303413261614524_1.0795067888706256 = ;"
-        " q@0.9548233194615704_0.99499282423469 = ;"
-        " c2'@0.6241456563344259_0.36158094685377146 = ;"
-        " c3@-1.573499641004599_3.506955433667022 = ;"
-        " yp@4.595660033720604_0.733754467444292 = ;"
-        " yq@4.595660033720604_0.733754467444292 = ;"
-        " x'@-0.42334895316617693_1.0938798351421903 = ;"
-        " yp'@4.595660033720604_0.733754467444292 = ;"
-        " yq'@4.595660033720604_0.733754467444292 = cong c a a b, cong a b b c,"
-        " eqangle a c a b b a b c, eqangle c b c a a c a b, cong a1 b a1 c,"
-        " eqangle b a1 b c c b c a1, cong b1 a b1 c, eqangle a b1 a c c a c b1,"
-        " coll m a b, cong m a m b, eqangle b s b a1 c b1 c a, cong c1 a c1 b,"
-        " eqangle a c1 a b b a b c1, eqangle b c1 b s c m c a, coll a2 b c1,"
-        " coll a2 c b1, coll b2 c a1, coll b2 a c1, coll c2 a b1, coll c2 b a1,"
-        " cyclic a a1 a2 x, cyclic b b1 b2 x, cyclic a a1 a2 a3, cyclic b a2 c"
-        " a3, cyclic b b1 b2 b3, cyclic c b2 a b3, coll p a1 a2, coll p b1 b2,"
-        " coll q a a3, coll q b b3, coll c2' c1 p, cyclic b1 c1 c2 c2', coll c3"
-        " c q, cyclic b b3 c c3, cyclic a a1 a2 yp, coll yp x p, cyclic a a1 a2"
-        " yq, coll yq x q, cyclic a a1 a2 x', cyclic c c1 c2 x', cyclic a a1 a2"
-        " yp', coll yp' x' p, cyclic a a1 a2 yq', coll yq' x' q ? cyclic c c1"
-        " c2 x"
-    ),
 }
 
-explanation = """
+explanation_without_aux = """
+We run the logical core DDAR on some easier IMO problems that can be solved by DDAR alone.
+"""
+
+explanation_with_aux = """
 We run the logical core DDAR on some challenging IMO problems, with manually provided
 auxiliary points. This is not a full AlphaGeometry system, only a test of the logical core.
 """
 
-if __name__ == "__main__":
-  print(explanation)
-  for name, pstring in problems.items():
+
+def print_problem_and_solve(problems_dict: dict[str, str]) -> None:
+  """Prints problem ID and its proving status."""
+  for name, pstring in problems_dict.items():
     print("Problem:", name)
     problem = AGProblem.parse(pstring)
     ddar = DDAR(problem.points)
@@ -332,4 +293,14 @@ if __name__ == "__main__":
       print()
       print()
       print("!!! Problem not solved, missing an auxiliary point?")
-      print()
+    print()
+
+
+if __name__ == "__main__":
+  # Easier problems that can be solved without auxiliary points.
+  print(explanation_without_aux)
+  print_problem_and_solve(problems_without_aux)
+
+  # Harder problems supplemented by auxiliary points found by a language model.
+  print(explanation_with_aux)
+  print_problem_and_solve(problems_with_aux)
