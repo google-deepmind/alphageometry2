@@ -5,6 +5,8 @@ introduced in [Trinh et al. (2024)](https://www.nature.com/articles/s41586-023-0
 which has now surpassed an average gold medalist in solving Olympiad geometry
 problems.
 
+**Update (Jan 2026):** The AG2 paper is published in [JMLR](https://www.jmlr.org/papers/v26/25-1654.html).
+
 This repository contains code necessary to reproduce solving some olympiad
 geometry problems (for example, IMO 2005 P1, IMO 2008 P6, IMO 2013 P3 and
 others).
